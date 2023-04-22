@@ -41,7 +41,7 @@ typedef const void *Type;
     typedef struct type type;        \
     struct type {
 #define INTERFACE_END(type)          \
-    }                                \
+    };                               \
                                      \
     extern const Type Type##type
 
