@@ -10,8 +10,8 @@ extern "C" {
 PUBLIC INTERFACE_START(String)
     EXTENDS(Class);
     PUBLIC char * content;
-    PUBLIC char *(*getString)(String *);
-    PUBLIC void (*setString)(String *, const char *);
+    PUBLIC char *(*getString)();
+    PUBLIC void (*setString)(const char *);
 INTERFACE_END(String);
 
 #ifdef __cplusplus

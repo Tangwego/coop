@@ -4,12 +4,12 @@
 int main() {
     printf("Hello, World!\n");
     String *str = NEW(String, "test");
-    printf("%s\n", str->getString(str));
-    str->setString(str, "hello");
-    printf("%s\n", str->getString(str));
+    printf("%s\n", str->getString());
+    str->setString("hello");
+    printf("%s\n", str->getString());
+    str->setString("hello execute method!");
+    printf("%s\n", str->getString());
 
-    EXECUTE_METHOD(str, setString, "hello execute method!\n");
-    printf("%s\n", str->getString(str));
-
+    DELETE(str);
     return 0;
 }
