@@ -37,8 +37,4 @@ PRIVATE Object string_dtor(Object cthis)
     return this;
 }
 
-PRIVATE CLASS_START(String)
-    sizeof(String),
-    string_ctor,
-    string_dtor
-CLASS_END(String);
+PRIVATE CLASS(String, string_ctor, string_dtor);

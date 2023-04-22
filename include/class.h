@@ -23,18 +23,32 @@ typedef const void *Type;
 #define NEW(type, ...) new(Type##type, ##__VA_ARGS__)
 #define DELETE(cthis) delete(cthis)
 
-#define CLASS_START(type) Class Class##type = {
+#define CLASS_START(type) Class Class##type = { \
+                        sizeof(type),           \
+
+
 #define CLASS_END(type)              \
     };                               \
                                      \
     const Type Type##type = &Class##type
 
+#define CLASS(type, ctor, dtor)      \
+        CLASS_START(type)            \
+            ctor,dtor                \
+        CLASS_END(type)
+
 #define INTERFACE_START(type)        \
     typedef struct type type;        \
     struct type {
 #define INTERFACE_END(type)          \
-    }
-#define INTERFACE_DEFINE(type) extern const Type Type##type
+    }                                \
+                                     \
+    extern const Type Type##type
+
+
+#define INTERFACE(type)              \
+    typedef struct type type;        \
+    struct type
 
 #define FUNCTION_PROBE(ptr, name) ptr->name = name
 #define FUNCTION_PROBE_BY_NAME(ptr, name, func) ptr->name = func

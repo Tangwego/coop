@@ -14,8 +14,6 @@ PUBLIC INTERFACE_START(String)
     PUBLIC void (*setString)(String *, const char *);
 INTERFACE_END(String);
 
-INTERFACE_DEFINE(String);
-
 #ifdef __cplusplus
 }
 #endif
