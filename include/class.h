@@ -17,6 +17,8 @@ extern "C" {
 typedef void *Object;
 typedef const void *Type;
 
+#define TYPE_NAME(type) (#type)
+
 #define EXTENDS(type) Type type
 #define IMPLEMENTS(type) Type type
 
@@ -53,8 +55,8 @@ typedef const void *Type;
 #define FUNCTION_PROBE(ptr, name) ptr->name = name
 #define FUNCTION_PROBE_BY_NAME(ptr, name, func) ptr->name = func
 
-
 #define EXECUTE_METHOD(ptr, func, ...) ptr->func(ptr, ##__VA_ARGS__)
+#define EXECUTE_SUPER_METHOD(ptr, super, func, ...) ((super *)(ptr->super))->func(##__VA_ARGS__)
 
 PUBLIC INTERFACE_START(Class)
     size_t size;

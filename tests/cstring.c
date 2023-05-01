@@ -4,7 +4,7 @@
 
 #include "cstring.h"
 
-PRIVATE String *mThisPtr;
+PRIVATE CString *mThisPtr;
 
 PRIVATE char *getString()
 {
@@ -21,7 +21,7 @@ PRIVATE void setString(const char *newcontent)
 
 PRIVATE Object string_ctor(Object cthis, va_list *args)
 {
-    String *this = cthis;
+    CString *this = cthis;
     const char *content = va_arg(*args, const  char*);
     this->content = strdup(content);
     FUNCTION_PROBE(this, getString);
@@ -32,7 +32,7 @@ PRIVATE Object string_ctor(Object cthis, va_list *args)
 
 PRIVATE Object string_dtor(Object cthis)
 {
-    String* this = cthis;
+    CString* this = cthis;
     if(this->content) {
         free(this->content);
         this->content = NULL;
@@ -41,4 +41,4 @@ PRIVATE Object string_dtor(Object cthis)
     return this;
 }
 
-PRIVATE CLASS(String, string_ctor, string_dtor);
+PRIVATE CLASS(CString, string_ctor, string_dtor);

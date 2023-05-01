@@ -1,5 +1,10 @@
-add_executable(test_string main.c string.c)
+## Tests executables
 
-target_link_libraries(test_string coop)
+aux_source_directory(. TESTS_SRCS)
 
-include_directories(${WORKSPACE_DIR}/include)
+add_executable(test_oop ${TESTS_SRCS})
+
+target_link_libraries(test_oop coop coop_utils log)
+
+include_directories(${WORK_DIR}/include)
+include_directories(${THIRD_PARTY_DIR}/clog)
