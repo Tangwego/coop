@@ -1,3 +1,6 @@
 [submodule "third_party/clog"]
 	path = third_party/clog
 	url = https://github.com/Tangwego/clog
+[submodule "third_party/googletest"]
+	path = third_party/googletest
+	url = https://github.com/google/googletest.git
